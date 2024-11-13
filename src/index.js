@@ -6,7 +6,23 @@ const fastify = Fastify({
   logger: true,
 });
 
-fastify.get("/api", function (req, res) {
+/**
+ * @type {import('fastify').RouteShorthandOptions}
+ * @const
+ */
+const opts = {
+  schema: {
+    body: {
+      type: "object",
+      properties: {
+        someKey: { type: "string" },
+        someOtherKey: { type: "number" },
+      },
+    },
+  },
+};
+
+fastify.get("/api", opts, function (req, res) {
   res.send({ hello: "world" });
 });
 
