@@ -15,7 +15,7 @@ const opts = {
     body: {
       type: "object",
       properties: {
-        someKey: { type: "string" },
+        someKey: { type: `string` },
         someOtherKey: { type: "number" },
       },
     },
